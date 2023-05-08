@@ -1,5 +1,11 @@
 imgdata = {
-    'A': '',
+    'A': 'assets/A.png',
+    'B': 'assets/B.png',
+    'C': 'assets/C.png',
+    'D': 'assets/D.png',
+    'E': 'assets/E.png',
+    'F': 'assets/F.png',
+    'G': 'assets/G.png',
 }
 
 data = {
