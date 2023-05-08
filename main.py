@@ -1,4 +1,16 @@
+import pygame
+pygame.init()
+
+# Screen initialization for pygame
+SCREEN_WIDTH = 800
+SCREEN_HEIGHT = 600
+screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+
+
+# - - - - - - DATASETS - - - - - -
+
 imgdata = {
+
     'A': 'assets/A.png',
     'B': 'assets/B.png',
     'C': 'assets/C.png',
@@ -6,8 +18,8 @@ imgdata = {
     'E': 'assets/E.png',
     'F': 'assets/F.png',
     'G': 'assets/G.png',
-}
 
+}  # Dictionary containing image paths
 data = {
 
     -2: {
@@ -131,11 +143,21 @@ data = {
         'img': 'G',
     },
 
-}
+}  # Dictionary containing story data
 
 
-def runChoice(n):
+# - - - - - - FUNCTIONS - - - - - -
+
+def runBackground(path_image):  # Function to update the background image
+    background_image = pygame.image.load(path_image)
+    background_image = pygame.transform.scale(background_image, (SCREEN_WIDTH, SCREEN_HEIGHT))
+    screen.blit(background_image, (0, 0))
+    pygame.display.update()
+
+
+def runChoice(n):  # Function to recursively run the choice-centric core of the story.
     print('\n', data[n]['text'])
+    runBackground(imgdata[data[n]['img']])
     userInput = " "
     while userInput not in data[n]['choices']:
         if '' in data[n]['choices']:
