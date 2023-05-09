@@ -148,8 +148,8 @@ data = {
 
 # - - - - - - FUNCTIONS - - - - - -
 
-def runBackground(path_image):  # Function to update the background image
-    background_image = pygame.image.load(path_image)
+def runBackground(n):  # Function to update the background image
+    background_image = pygame.image.load(imgdata[data[n]['img']])
     background_image = pygame.transform.scale(background_image, (SCREEN_WIDTH, SCREEN_HEIGHT))
     screen.blit(background_image, (0, 0))
     pygame.display.update()
@@ -157,7 +157,7 @@ def runBackground(path_image):  # Function to update the background image
 
 def runChoice(n):  # Function to recursively run the choice-centric core of the story.
     print('\n', data[n]['text'])
-    runBackground(imgdata[data[n]['img']])
+    runBackground(n)
     userInput = " "
     while userInput not in data[n]['choices']:
         if '' in data[n]['choices']:
